@@ -1,0 +1,59 @@
+<div class="col-sm-6 centro">
+  		<div class="featured-box featured-box-primary mt-xlg">
+	  		<div class="box-content">
+          <%= form_for(@visitante) do |f| %>
+          <h4 class="heading-primary text-uppercase mb-md">Informe os dados abaixo</h4>
+  	  		<form action="/" id="frmVisitante" method="post">
+         
+          <% if @visitante.errors.any? %>
+            <div class="alert alert-danger">
+              <h2>Oops! campos com erro:</h2>
+              <% @visitante.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </div>
+          <% end %>
+        
+        <div class="row">
+					<div class="form-group">
+						<div class="col-md-12">
+							<label>Nome Completo</label>
+							 <%= f.text_field :nome, :autofocus => true, class: 'form-control input-lg' %>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-12">
+							<label>Email</label>
+							 <%= f.text_field :email, class: 'form-control input-lg' %>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-12">
+							<label>Telefone</label>
+							 <%= f.text_field :telefone, class: 'form-control input-lg' %>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+				  <div class="col-md-6" style="left: 25%;">
+						<input type="submit" value="Cadastre-me" class="btn btn-primary mb-xl" data-loading-text="Aguarde...">
+					</div>  
+				</div>
+				
+				</form>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script>
+  $("#visitante_telefone").mask('(00) 00000-0000', {reverse: false});
+</script>

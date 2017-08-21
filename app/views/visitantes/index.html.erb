@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Visitantes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visitantes.each do |visitante| %>
+      <tr>
+        <td><%= visitante.nome %></td>
+        <td><%= visitante.email %></td>
+        <td><%= visitante.telefone %></td>
+        <td><%= link_to 'Show', visitante %></td>
+        <td><%= link_to 'Edit', edit_visitante_path(visitante) %></td>
+        <td><%= link_to 'Destroy', visitante, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Visitante', new_visitante_path %>
