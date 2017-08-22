@@ -15,6 +15,8 @@ class VisitantesController < ApplicationController
   # GET /visitantes/new
   def new
     @visitante = Visitante.new
+    @visit = Visitante.last
+    @codigo = @visit.id
   end
 
   # GET /visitantes/1/edit
@@ -25,10 +27,12 @@ class VisitantesController < ApplicationController
   # POST /visitantes.json
   def create
     @visitante = Visitante.new(visitante_params)
+    
 
     respond_to do |format|
       if @visitante.save
-        format.html { redirect_to @visitante, notice: 'Visitante was successfully created.' }
+        
+        format.html { redirect_to root_path, notice: 'Visitante was successfully created.' }
         format.json { render :show, status: :created, location: @visitante }
       else
         format.html { render :new }

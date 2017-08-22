@@ -4625,3 +4625,7 @@ html #footer.color-light .footer-copyright {
 html.boxed .body {
 	border-top-color: #15aced;
 }
+
+.login-box{
+	width: 80%;
+}
